@@ -1,5 +1,5 @@
 export interface Commit {
-  commiter: {
+  committer: {
     email: string;
     date: string;
   };

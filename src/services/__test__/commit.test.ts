@@ -6,7 +6,7 @@ import nock from 'nock';
 const testData: CommitData[] = [
   {
     commit: {
-      commiter: {
+      committer: {
         email: 'test@test.com',
         date: new Date().toString(),
       },
