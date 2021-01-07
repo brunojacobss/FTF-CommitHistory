@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^6.2.1"
+    "cypress": "^6.2.1",
+    "nock": "^13.0.5"
   }
 }
