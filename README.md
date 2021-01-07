@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 The styling of choice was constructed with [React Bootstrap](https://react-bootstrap.github.io/).
 
-I followed TDD guidelines for the development of this application, using [Cypress](https://www.cypress.io/) for E2E testing, and component testing with [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+I followed TDD guidelines for the development of this application, using [Cypress](https://www.cypress.io/) for E2E testing, and basic unit testing with [Jest](https://jestjs.io/) and [Nock](https://github.com/nock/nock)
 
 ## Available Scripts
 
@@ -21,6 +21,10 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
+
+### `npm run cypress:open`
+
+Launches the cypress client to start the E2E test.\
 
 ### `npm run build`
 
