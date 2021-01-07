@@ -14,6 +14,8 @@ The application fetches the [GitHub REST API](https://docs.github.com/en/free-pr
 2. Run `npm install`
 3. Execute one of the available scripts
 
+You can also change the repository you want to track commits of in the constants.ts file.
+
 ## Available Scripts
 
 In the project directory, you can run:

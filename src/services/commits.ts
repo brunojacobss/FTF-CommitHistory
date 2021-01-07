@@ -2,8 +2,6 @@ import { request } from '@octokit/request';
 import { CommitData } from '../models/commitData';
 
 const getCommits = async (url: string) => {
-  try {
-  } catch (error) {}
   let commits: CommitData[] = [];
   const response = await request(`GET ${url}`);
   for (const commitData of response.data) {
