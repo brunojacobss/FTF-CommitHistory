@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The styling of choice was constructed with [React Bootstrap](https://react-bootstrap.github.io/).
+
+I followed TDD guidelines for the development of this application, using [Cypress](https://www.cypress.io/) for E2E testing, and component testing with [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
 ## Available Scripts
 
 In the project directory, you can run:
