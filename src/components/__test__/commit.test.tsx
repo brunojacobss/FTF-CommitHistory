@@ -1,9 +1,4 @@
-import {
-  findByTestId,
-  fireEvent,
-  getByTestId,
-  render,
-} from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { CommitData } from '../../models/commitData';
 import { Commit } from '../commit';
 
@@ -28,34 +23,15 @@ describe('Blog component', () => {
     };
   });
 
-  test('should only render message and avatar by default', () => {
-    const component = render(
-      <Commit
-        author={commitData.author}
-        commit={commitData.commit}
-        html_url={commitData.html_url}
-      />
-    );
-    const div = component.getByTestId('commitDiv');
-    expect(div).toHaveTextContent('test message');
-    expect(div).not.toHaveTextContent('test login');
-    expect(div).not.toHaveTextContent('test.com');
-  });
-
   test('should render the details of the commit when the button is clicked', () => {
-    const component = render(
-      <Commit
-        author={commitData.author}
-        commit={commitData.commit}
-        html_url={commitData.html_url}
-      />
-    );
+    const component = render(<Commit commitData={commitData} index={0} />);
 
-    const button = component.getByTestId('expand');
-    fireEvent.click(button);
-    const div = component.getByTestId('togglable');
-    expect(div).toHaveTextContent('test@test.com');
-    expect(div).toHaveTextContent('Author: test login');
-    expect(div).toHaveTextContent('Commit url: Take me to the commit!');
+    const accordionItem = component.getByTestId('commitDiv');
+    fireEvent.click(accordionItem);
+    expect(accordionItem).toHaveTextContent('test@test.com');
+    expect(accordionItem).toHaveTextContent('Author: test login');
+    expect(accordionItem).toHaveTextContent(
+      'Commit url: Take me to the commit!'
+    );
   });
 });

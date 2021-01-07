@@ -7,7 +7,7 @@ export const App: React.FC = () => {
   return (
     <Container>
       <Jumbotron>
-        <h1 className="header">Github commit history</h1>
+        <h1 className="header">Github Commit History</h1>
       </Jumbotron>
       <CommitList />
     </Container>

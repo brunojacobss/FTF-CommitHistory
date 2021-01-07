@@ -11,14 +11,17 @@ interface Props {
 
 export const useRequest = ({ method, url, body, onSuccess }: Props) => {
   const [error, setError] = useState<{ message: string } | null>(null);
+  const [loading, setLoading] = useState(false);
   const [commits, setCommits] = useState<CommitData[]>([]);
 
   const doRequest = async () => {
     try {
       setError(null);
       setCommits([]);
+      setLoading(true);
       const response = await commitService.getCommits(url);
       setCommits(commits.concat(response));
+      setLoading(false);
       if (onSuccess) {
         onSuccess(commits);
       }
@@ -27,5 +30,5 @@ export const useRequest = ({ method, url, body, onSuccess }: Props) => {
       console.error(error.message);
     }
   };
-  return { doRequest, error, commits } as const;
+  return { doRequest, error, commits, loading } as const;
 };

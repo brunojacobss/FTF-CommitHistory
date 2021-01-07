@@ -1,10 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect } from 'react';
+import Alert from 'react-bootstrap/Alert';
+import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
+import Skeleton from 'react-loading-skeleton';
 import { repoUrl } from '../constants';
 import { useRequest } from '../hooks/use-request';
 import { Commit } from './commit';
 
 export const CommitList: React.FC = () => {
-  const { doRequest, commits, error } = useRequest({
+  const { doRequest, commits, error, loading } = useRequest({
     url: repoUrl,
     method: 'GET',
   });
@@ -19,13 +24,12 @@ export const CommitList: React.FC = () => {
     fetchCommits();
   }, []);
 
-  const commitList = commits.map(({ author, commit, html_url }) => {
+  const commitList = commits.map((commitData, index) => {
     return (
       <Commit
-        key={commit.message}
-        author={author}
-        commit={commit}
-        html_url={html_url}
+        key={commitData.commit.message}
+        commitData={commitData}
+        index={index}
       />
     );
   });
@@ -36,11 +40,17 @@ export const CommitList: React.FC = () => {
 
   return (
     <div>
-      {error && <p>{error}</p>}
-      {commitList}
-      <button data-testid="getCommitsButton" onClick={handleClick}>
-        get commits
-      </button>
+      {error && <Alert variant="danger">{error}</Alert>}
+      <Button
+        variant="dark"
+        onClick={handleClick}
+        disabled={loading}
+        data-testid="getCommitsButton"
+        style={{ marginBottom: 24 }}
+      >
+        {loading ? 'Loading...' : 'Get commits'}
+      </Button>
+      <Accordion>{loading ? <Skeleton count={20} /> : commitList}</Accordion>
     </div>
   );
 };
