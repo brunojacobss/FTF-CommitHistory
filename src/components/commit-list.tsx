@@ -50,7 +50,9 @@ export const CommitList: React.FC = () => {
       >
         {loading ? 'Loading...' : 'Get commits'}
       </Button>
-      <Accordion>{loading ? <Skeleton count={20} /> : commitList}</Accordion>
+      <Accordion style={{ marginBottom: 24 }}>
+        {loading ? <Skeleton count={20} /> : commitList}
+      </Accordion>
     </div>
   );
 };

@@ -4,6 +4,7 @@ const emojiMap = {
   lipstick: '💄',
   package: '📦',
   page_facing_up: '📄',
+  sparkles: '✨',
 };
 const regExpression = /:([^:]*):/g;
 export const parseEmoji = (text: string) => {

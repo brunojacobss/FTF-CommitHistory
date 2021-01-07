@@ -2,9 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The styling of choice was constructed with [React Bootstrap](https://react-bootstrap.github.io/).
+Basic styling was constructed with [React Bootstrap](https://react-bootstrap.github.io/).
 
 I followed TDD guidelines for the development of this application, using [Cypress](https://www.cypress.io/) for E2E testing, and basic unit testing with [Jest](https://jestjs.io/) and [Nock](https://github.com/nock/nock)
+
+The application fetches the [GitHub REST API](https://docs.github.com/en/free-pro-team@latest/rest) using the official [GitHub request library](https://github.com/octokit/request.js) in order to get all the commits for this repository, and displays them in an accordion along with basic information about each commit.
+
+## Usage
+
+1. Clone this repo
+2. Run `npm install`
+3. Execute one of the available scripts
 
 ## Available Scripts
 

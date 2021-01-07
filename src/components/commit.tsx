@@ -32,7 +32,7 @@ export const Commit: React.FC<Props> = ({ commitData, index }) => {
           </div>
           <p>Email: {commit.committer.email}</p>
           <p>
-            Commit url: <a href={html_url}>Take me to the commit!</a>
+            <a href={html_url}>I want to see the changes!</a>
           </p>
         </Card.Body>
       </Accordion.Collapse>
